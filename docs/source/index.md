@@ -2,7 +2,7 @@
 # Pipeline Package documentation
 Welcome to the Pipeline Package documentation!
 
-
+## Pipeline Operations
 ```{eval-rst}
 .. autoclass :: kio.pipeline_operations.ColumnDropper
     :show-inheritance:
