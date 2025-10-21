@@ -1,5 +1,5 @@
 [project]
-name = "kio-dataprocessing"
+name = "kioptipack-dataprocessing"
 version = "0.1.0"
 description = "A data processing library for KI-Opti-Pack project. It provides addtional data preprocessing and postprocessing functionalities to support machine learning workflows in the context of optimizing plastic packaging solutions by extending sklearn's pipeline operations."
 readme = "README.md"
