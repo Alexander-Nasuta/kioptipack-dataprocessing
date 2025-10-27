@@ -1,6 +1,6 @@
 [project]
 name = "kioptipack-dataprocessing"
-version = "0.1.0"
+version = "0.4.0"
 description = "A data processing library for KI-Opti-Pack project. It provides addtional data preprocessing and postprocessing functionalities to support machine learning workflows in the context of optimizing plastic packaging solutions by extending sklearn's pipeline operations."
 readme = "README.md"
 authors = [
@@ -12,6 +12,7 @@ requires-python = ">=3.11"
 dependencies = [
     "pandas>=2.3.0",
     "scikit-learn>=1.6.1",
+    "fastiot >=1.0,<2",
 ]
 
 [build-system]
