@@ -470,6 +470,11 @@ class NumericOneHotEncodePd(BaseEstimator, TransformerMixin):
 
         result = pd.concat([x, encoded_df], axis=1)
 
+        # Ensure all required columns are present, adding them with 0s if necessary
+        for column in self.required_columns:
+            if column not in result.columns:
+                result[column] = 0.0
+
         return result
 
 
@@ -518,3 +523,37 @@ class FindReplace(BaseEstimator, TransformerMixin):
             df[target] = df[target].mask(self.ops[self.comp_op](df[target]), other)
             df[target] = df[target].astype(self.target_dtype)
         return df
+
+
+class ReplaceNoneValues(BaseEstimator, TransformerMixin):
+
+    def __init__(self, target: str, replacement_value: any):
+        if not isinstance(target, str):
+            raise TypeError("Target should be a string.")
+        if not target:
+            raise ValueError("Target should not be empty.")
+        self.target = target
+        self.replacement_value = replacement_value
+
+    def fit(self, target):
+        """ Return self."""
+        return self
+
+    def transform(self, x: pd.DataFrame) -> pd.DataFrame:
+        """
+        Drop the specified columns from the DataFrame.
+
+        :param x: The Dataframe to transform
+        :type x: pd.DataFrame
+
+        :return: The transformed Dataframe
+        :rtype: pd.DataFrame
+
+        """
+        if not self.target in x.columns:
+            raise KeyError("Target is not contained in the DataFrame.")
+
+        x[self.target] = x[self.target].apply(
+            lambda v: self.replacement_value if v is None else v
+        )
+        return x

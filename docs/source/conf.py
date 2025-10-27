@@ -9,7 +9,7 @@
 project = 'kioptipack-dataprocessing'
 copyright = '2025, Alexander Nasuta, Mats Gesenhues'
 author = 'Alexander Nasuta, Mats Gesenhues'
-release = '0.4.0'
+release = '0.6.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
